@@ -1,3 +1,4 @@
+ #directAssignmentAllowed kann perspektivisch abgeschafft werden, da Gruppen-Rollen-Zuweisung der Standart ohne Ausnahme sein soll
 {
   "eligibleGroups": [
     "PIM-ApplicationDeveloper-Scope1",
@@ -7,7 +8,7 @@
     "AAD_enbwsoc-SCR",
     "AAD_enbwsoc-GR"
   ],
-  #directAssignmentAllowed kann perspektivisch abgeschafft werden, da Gruppen-Rollen-Zuweisung der Standart ohne Ausnahme sein soll
+ 
   "directAssignmentAllowed": [
     "Security Reader",
     "Global Reader"
