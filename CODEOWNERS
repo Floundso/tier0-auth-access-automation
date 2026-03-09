@@ -1,0 +1,17 @@
+# Alle Pfade werden vom Auth & Access Team reviewt
+# Minimum 2 Reviewer erforderlich (wird in Branch Protection konfiguriert)
+
+# Default: alles
+* @Floundso
+
+# AD Automations
+/ad-automations/ @Floundso
+
+# Cloud Automations
+/cloud-automations/ @Floundso
+
+# Infrastructure & Whitelist - besonders kritisch
+/infrastructure/ @Floundso
+
+# Git Hooks
+/.githooks/ @Floundso
