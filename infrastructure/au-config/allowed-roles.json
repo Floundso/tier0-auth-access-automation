@@ -1,0 +1,16 @@
+{
+  "eligibleGroups": [
+    "PIM-ApplicationDeveloper-Scope1",
+    "PIM-AIAdministrator-Scope1",
+  ],
+  "activeGroups": [
+    "AAD_enbwsoc-SCR",
+    "AAD_enbwsoc-GR"
+  ],
+  "directAssignmentAllowed": [
+    "Security Reader",
+    "Global Reader"
+  ],
+  "lastUpdated": "2026-03-09",
+  "maintainer": "Auth & Access Team"
+}
