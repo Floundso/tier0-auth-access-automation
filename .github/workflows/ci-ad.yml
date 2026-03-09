@@ -1,0 +1,42 @@
+name: CI - AD Automations
+
+on:
+  pull_request:
+    paths:
+      - 'ad-automations/**'
+
+jobs:
+  lint-and-test:
+    name: PSScriptAnalyzer + Pester
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: PSScriptAnalyzer
+        shell: pwsh
+        run: |
+          $results = Invoke-ScriptAnalyzer `
+            -Path ./ad-automations/scripts/ `
+            -Recurse `
+            -Severity Error, Warning
+          if ($results) {
+            $results | Format-List
+            exit 1
+          }
+
+      - name: Credential Scan
+        uses: microsoft/security-devops-action@v1
+        with:
+          categories: 'secrets'
+
+      - name: Pester Tests
+        shell: pwsh
+        run: |
+          $config = New-PesterConfiguration
+          $config.Run.Path = './ad-automations/tests/'
+          $config.TestResult.Enabled = $true
+          $config.TestResult.OutputPath = 'TestResults/ad-results.xml'
+          $config.Run.Exit = $true
+          Invoke-Pester -Configuration $config
