@@ -1,0 +1,39 @@
+# PowerShell
+*.ps1xml
+*.psd1.bak
+
+# Credentials & Secrets - NIEMALS committen
+*.pfx
+*.cer
+*.key
+*.password
+*secret*
+*credential*
+*cred*
+login.xml
+*.xml.bak
+
+# Azure
+*.azureauth
+.azure/
+
+# Test output
+TestResults/
+*.xml.result
+
+# VS Code
+.vscode/settings.json
+.vscode/launch.json
+
+# JetBrains / Rider
+.idea/
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Temp files
+*.tmp
+*.temp
+~$*
