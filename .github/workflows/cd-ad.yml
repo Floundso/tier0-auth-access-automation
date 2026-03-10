@@ -1,0 +1,30 @@
+name: CD - AD Automations
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'ad-automations/scripts/**'
+
+jobs:
+  deploy:
+    name: Deploy to Scriptrunner
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy Scripts to Scriptrunner
+        shell: pwsh
+        run: |
+          $source = "./ad-automations/scripts/"
+          $destination = "\\scriptrunner\automation-scripts\"
+          
+          Copy-Item -Path "$source*" `
+            -Destination $destination `
+            -Recurse `
+            -Force
+          
+          Write-Output "Deployment erfolgreich: $(Get-Date)"
